@@ -122,3 +122,37 @@ function minSubArray(ar,no){
 
     return minLen == Infinity ? 0 : minLen;
 }
+
+
+
+
+//write a function called findLongestSubstring
+//which accepts a string and returns the length of the longest substring with all distinct characters.
+
+
+// Time Complexity ---> O(n*2)
+// Space Complexity ----> O(1)
+
+function findLong(str){
+    let n=str.length;
+     if(n === 0) return 0;
+     let maxLen=0;
+    
+    for(let i=0;i<n;i++){
+        let visitedAr=[];
+
+        for(let j=i;j<n;j++){
+            if(visitedAr[str.charCodeAt(j)] === true) {
+                break;
+            }
+
+            else {
+                maxLen=Math.max(maxLen,j-i+1);
+                visitedAr[str.charCodeAt(j)] =true;
+                
+                console.log(visitedAr)
+            }
+        }
+    }
+    return maxLen;
+} 
