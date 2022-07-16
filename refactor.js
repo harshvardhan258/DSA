@@ -293,3 +293,29 @@ stringifyNumbers(obj)
     }
 }
 */
+
+
+
+
+//write a function called binarySearch which accepts a sorted array
+// and a value and returns the index at which the value exists. Otherwise
+// return -1
+
+
+function binarySearch(ar,no){
+  // add whatever parameters you deem necessary - good luck!
+ let start=0;
+ let end=ar.length-1;
+ let mid=Math.floor((start+end)/2)
+ while(ar[mid]!==no && start<=end){
+     if(ar[mid]>no){
+         end=mid-1;
+     }
+     else{
+         start=mid+1;
+     }
+     mid=Math.floor((start+end)/2);
+ }
+ 
+  return ar[mid]==no ? mid : -1;
+}
