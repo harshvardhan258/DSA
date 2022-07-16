@@ -156,3 +156,87 @@ function findLong(str){
     }
     return maxLen;
 } 
+
+
+
+
+
+
+
+
+
+
+//write a function which Return the sum of all even numbers in an object which may contain nested objects.
+
+var obj1 = {
+  outer: 2,
+  obj: {
+    inner: 2,
+    otherObj: {
+      superInner: 2,
+      notANumber: true,
+      alsoNotANumber: "yup"
+    }
+  }
+}
+
+
+
+
+
+
+
+// write a function called faltten which accepts an array of arrays and 
+//return a new array with all values flattened
+
+
+function flatten(ar){
+  // add whatever parameters you deem necessary - good luck!
+ let finalAr=[];
+ let temp=[...ar];
+  
+  while(temp.length){
+      const next=temp.pop();
+      if(Array.isArray(next)){
+          temp.push(...next);
+      } else {
+          finalAr.push(next);
+      }
+  }
+  
+  return finalAr.reverse();
+}
+
+// flatten([1, 2, 3, [4, 5] ]) // [1, 2, 3, 4, 5]
+// flatten([1, [2, [3, 4], [[5]]]]) // [1, 2, 3, 4, 5]
+// flatten([[1],[2],[3]]) // [1,2,3]
+// flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) // [1,2,3
+
+var obj2 = {
+  a: 2,
+  b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+  c: {c: {c: 2}, cc: 'ball', ccc: 5},
+  d: 1,
+  e: {e: {e: 2}, ee: 'car'}
+};
+
+function nestedEvenSum(obj){
+    let sum=0;
+    
+    function totalSum(ob){
+        for(let key in ob){
+            if(typeof ob[key] === 'object'){
+                totalSum(ob[key]);
+            } else if(typeof ob[key] === 'number'){
+                if(ob[key]%2 === 0){
+                    sum+=ob[key];
+                }
+            }
+        }
+    }
+    totalSum(obj);
+    return sum;
+}
+
+nestedEvenSum(obj1); // 6
+nestedEvenSum(obj2); // 10
