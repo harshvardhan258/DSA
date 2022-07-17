@@ -105,3 +105,37 @@ function insertionSort(ar){
 }
 
 insertionSort([2,1,9,76,4])
+
+
+
+//merge sort
+
+function mergeSort(ar1,ar2){
+   let result =[];
+    let i=0;
+    let j=0;
+    while(i<ar1.length&&j<ar2.length){
+        if(ar1[i]>ar2[j]){
+            result.push(ar2[j]);
+            j++;
+        } else {
+            result.push(ar1[i]);
+            i++;
+        }
+    }
+
+    while(i<ar1.length){
+        result.push(ar1[i]);
+        i++;
+    }
+
+    while(j<ar2.length){
+        result.push(ar2[j]);
+        j++;
+    }
+    console.log(ar2)
+ return result;   
+}
+
+
+mergeSort([1,10,50],[2,14,99,100]);
