@@ -110,7 +110,16 @@ insertionSort([2,1,9,76,4])
 
 //merge sort
 
-function mergeSort(ar1,ar2){
+/**
+merge pseudocode
+1.break up the array into halves until you have arrays that are empty
+  or have one element
+2. once you have smaller sorted arrays, merge those arrays until you back at the
+   full length of the array
+3. once the array has been merged back together return the merged(and sorted) array. 
+**/
+
+function merge(ar1,ar2){
    let result =[];
     let i=0;
     let j=0;
@@ -135,6 +144,14 @@ function mergeSort(ar1,ar2){
     }
     console.log(ar2)
  return result;   
+}
+
+function mergeSort(arr){
+    if(arr.length===1) return arr;
+    let mid=Math.floor(arr.length/2);
+    let leftAr=mergeSort(arr.slice(0,mid));
+    let rightAr=mergeSort(arr.slice(mid));
+    return merge(leftAr,rightAr);
 }
 
 
