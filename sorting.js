@@ -110,6 +110,8 @@ insertionSort([2,1,9,76,4])
 
 //merge sort
 
+//Time Complexity O(nlogn)
+
 /**
 merge pseudocode
 1.break up the array into halves until you have arrays that are empty
