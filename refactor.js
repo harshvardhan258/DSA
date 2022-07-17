@@ -319,3 +319,35 @@ function binarySearch(ar,no){
  
   return ar[mid]==no ? mid : -1;
 }
+
+
+
+
+
+
+
+//write a function called naiveString which returns no of type shor string appears
+// in long string.
+
+function naiveString(str1,str2){
+    let long=str1.split('');
+    let short=str2.split('');
+
+    let counter=0;
+
+    for(let i=0;i<long.length;i++){
+        for(let j=0;j<short.length;j++){
+            console.log(short[j],long[i+j]);
+        if(short[j]!==long[i+j]){
+            console.log('break')
+            break;
+        }
+            if(j === short.length-1)
+                console.log("found one")
+                counter++;
+        }
+    }
+return counter;
+}
+
+naiveString('lorie loled','lol');
