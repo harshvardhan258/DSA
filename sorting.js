@@ -37,3 +37,28 @@ function bubbleSort(ar){
 
 bubbleSort([37,45,29,8]);
 
+
+//Selection Sort
+
+// better Than bubble sort as it makes swap at end of second loop 
+//unlike bubble sort which keep on swapping
+
+//Selection sort works in such a way that values is compared
+// and minimum value is placed at beginning of array
+
+function selectionSort(ar){
+
+    for(let i=0;i<ar.length;i++){
+        let lowest=i;
+        for(let j=i+1;j<ar.length;j++){
+            if(ar[j]<ar[lowest]){
+                lowest=j;
+            }
+        }
+        if(i!==lowest)
+        [ar[i],ar[lowest]]=[ar[lowest],ar[i]]
+    }
+    return ar;
+}
+
+selectionSort([34,22,10,19,17]);
