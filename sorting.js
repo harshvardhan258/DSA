@@ -1,6 +1,12 @@
 // Bubble Sort
 //Complexity time - O(n*2) worst
 
+/**Bubble Sort Pseudocode
+1. start looping from with a variable called i the end of the array towards the beginning
+2. Start an inner loop with a variable called j from the beginning until i-1
+3. if arr[j] is greater than arr[j+1],swap those two values
+4.Return the sorted array
+**/
 
 //Solution 1
 function bubbleSort(ar){
@@ -46,6 +52,17 @@ bubbleSort([37,45,29,8]);
 //Selection sort works in such a way that values is compared
 // and minimum value is placed at beginning of array
 
+/**
+Selection Sort Pseudocode
+
+1. Store the first element as the smallest value you have seen so far.
+2. Compare this item to the next item in the array until you find a smaller no.
+3. If a smaller no is found,designate that smaller no to be the new "minimum" and continue
+   until the end of the array.
+4. If the "minimum" is not the value(index) you initially began with swap the two values.
+5. Repeat his with the nex element until the array is sorted. 
+**/
+
 function selectionSort(ar){
 
     for(let i=0;i<ar.length;i++){
@@ -62,3 +79,15 @@ function selectionSort(ar){
 }
 
 selectionSort([34,22,10,19,17]);
+
+
+
+//Insertion Sort
+
+/**Insertion Sort Pseudocode
+1. Start by picking the 2 element in the array
+2. Now Compare the second element with the one before it and swap if necessary
+3. Continue to the next element and if it is in the incorrect order, iterate through
+   the sorted portion(i.e the left side) to place the element in the correct place.
+4. Repeat until the array is sorted.
+**/
