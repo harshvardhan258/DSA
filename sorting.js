@@ -91,3 +91,17 @@ selectionSort([34,22,10,19,17]);
    the sorted portion(i.e the left side) to place the element in the correct place.
 4. Repeat until the array is sorted.
 **/
+
+function insertionSort(ar){
+    for(let i=1;i<ar.length;i++){
+        let currentVal=ar[i];
+        let j=i-1
+        for(;j>=0 && ar[j] > currentVal;j--){
+                ar[j+1]=ar[j];
+        }
+        ar[j+1] =currentVal;
+    }
+    return ar;
+}
+
+insertionSort([2,1,9,76,4])
