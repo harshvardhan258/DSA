@@ -1,4 +1,6 @@
 // Bubble Sort
+//Complexity time - O(n*2) worst
+
 
 //Solution 1
 function bubbleSort(ar){
@@ -15,7 +17,9 @@ function bubbleSort(ar){
 bubbleSort([37,45,29,8]);
 
 //solution 2
-//Less no of looping
+//Complexity time - O(n) best
+
+//Less no of looping Optimised using noSwaps
 function bubbleSort(ar){
     let noSwaps;
     for(let i=0;i<ar.length;i++){
