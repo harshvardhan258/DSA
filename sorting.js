@@ -12,18 +12,24 @@ function bubbleSort(ar){
     return ar;
 }
 
+bubbleSort([37,45,29,8]);
 
 //solution 2
 //Less no of looping
 function bubbleSort(ar){
-    for(let i=ar.length;i>0;i--){
-        for(let j=0;j<i-1;j++){
+    let noSwaps;
+    for(let i=0;i<ar.length;i++){
+        noSwaps=true;
+        for(let j=i+1;j<ar.length;j++){
             if(ar[i]>ar[j]){
                 [ar[i],ar[j]]=[ar[j],ar[i]];
+                noSwaps=false;
             }
         }
+        if(noSwaps) break;
     }
     return ar;
 }
 
 bubbleSort([37,45,29,8]);
+
