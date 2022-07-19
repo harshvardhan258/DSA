@@ -158,3 +158,42 @@ function mergeSort(arr){
 
 
 mergeSort([1,10,50],[2,14,99,100]);
+
+
+//QuickSort
+
+/**
+QuickSort Pseudocode
+1.Call the pivot helper on the array
+2. when the helper returns to you the updated pivot index,
+   recursiely call the pivot helper on the subarray to the left
+   of that inde, and the subarray to the right of that index.
+3. Your base case occurs when you consider a subarray with less than 2 elements
+**/
+
+function pivot(ar,start=0,end=ar.length){
+    let currentEle=ar[start];
+    let idx=start;
+    for(let i=start+1;i<ar.length;i++){
+        if(currentEle>ar[i]){
+            idx++;
+            [ar[i],ar[idx]]=[ar[idx],ar[i]];
+        }
+    }
+    [ar[idx],ar[start]]=[ar[start],ar[idx]];
+    return idx;
+}
+
+function quickSort(ar,left=0,right=ar.length-1){
+    if(left<right){
+    let pivotIdx=pivot(ar,left,right);
+    //left
+    quickSort(ar,left,pivotIdx-1);
+    //right
+    quickSort(ar,pivotIdx+1,right);
+    }
+    return ar;
+}
+
+quickSort([4,8,2,1,5,7,6,3]);
+
