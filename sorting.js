@@ -197,3 +197,56 @@ function quickSort(ar,left=0,right=ar.length-1){
 
 quickSort([4,8,2,1,5,7,6,3]);
 
+
+//Radix Sort
+
+/*
+Radix sort is a special sorting algorithm that works on lists of numbers
+It never maker comparisons between elements
+It exploits the fact that information about size of a number is encoded
+ in the no of digits.  
+*/
+
+/*
+   Radix Sort Pseudocode
+
+1. Figure out how many digits the largest no has
+2. Loop from k=0 up to this largest number has
+3. For Each iteration of the loop:
+   create buckets for each digit(0 to 9)
+   place each no in the corresponding bucket based on its kth digit
+4. Replace our existing array with values in our buckets, staring wih 0 and going up to 9
+5. Reurn list at the end!
+*/
+
+function getDigit(num,i){
+    return Math.floor(Math.abs(num)/Math.pow(10,i)%10)
+}
+
+function digitCount(num){
+    return num === 0?1:parseInt((num).toString().length());
+}
+
+function mostDigit(ar){
+    if(ar.length === 0) return;
+    let no=0;
+    ar.map(val=>{
+       no=Math.max(no,val);
+    })
+    return parseInt((no).toString().length);
+}
+
+function radixSort(ar){
+    let maxCount=mostDigit(ar);
+    for(let k=0;k<maxCount;k++){
+        let digitBuckets=Array.from({length:10},()=>[]);
+        for(let i=0;i<ar.length;i++){
+            let digit=getDigit(ar[i],k)
+          digitBuckets[digit].push(ar[i]);
+        }
+        ar =[].concat(...digitBuckets);
+    }
+    return ar;
+}
+
+radixSort([23,345,5467,12,2345,9852]);
