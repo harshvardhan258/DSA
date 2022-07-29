@@ -5,7 +5,7 @@ class Node{
     }
 }
 
-class LinkedList{
+class SinglyLinkedList{
     constructor(){
         this.head=null;
         this.tail=null;
@@ -28,7 +28,6 @@ class LinkedList{
     traverse(){
         let current=this.head;
         while(current){
-            console.log(current.val);
             current=current.next;
         }
     }
@@ -52,8 +51,43 @@ class LinkedList{
         }
         return current;
     }
+
+     shift(){
+        if(!this.head) return undefined;
+        let currentHead=this.head;
+        this.head=currentHead.next;
+         this.length--;
+         if(this.length === 0) this.tail=null;
+         return currentHead;
+    }
+
+    unshift(val){
+        let newHead=new Node(val);
+        if(!this.head){
+            this.head=newHead;
+            this.tail=this.head;
+        } else {
+        newHead.next=this.head;
+        this.head=newHead;
+        }
+        this.length++;
+        return this;
+    }
+
+    get(idx){
+        if(idx<0||idx>=this.length)
+            return null;
+            let counter=0;
+            let counterValue=this.head;
+            while(counter!==idx){
+                counterValue=counterValue.next;
+                counter++;
+           
+        }
+         return counterValue;
+    } 
 }
 
-let s1=new LinkedList();
-s1.push("hello").push("goodbye").push("!");
-s1.pop();
+
+var list= new SinglyLinkedList();
+list.push("hello").push("goodbye").push('!');
