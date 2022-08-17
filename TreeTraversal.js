@@ -127,3 +127,21 @@ t.insert(20);
 // DFS - PostOrder [3,8,6,20,15,10]
 
 // DFS - InOrder [3,6,8,10,15,20]
+
+/**
+Trees are non linear data sructure that contain a root and child nodes
+
+Binary Trees can have values of any type, but at most two children for each parent.
+
+BST(Binary Search Trees) are a more specific version of binary trees where every node to the left of a parent is less than it's value and every node to the right is greater.
+
+---> when to use
+
+DFS - InOrder
+
+Used commonly with BST. Noice we get all nodes in the tree in their underlying order
+
+DFS - PreOrder
+
+Can be used to 'export' a tree structure so that it is easily reconstructed or copied.
+**/
